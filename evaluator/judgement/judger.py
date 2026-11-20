@@ -62,7 +62,7 @@ class Judger:
                 rel_sum += (rel_cnt+1) / (i+1)
                 rel_cnt += 1
 
-        return rel_sum / rel_cnt if rel_cnt > 0 else 0 
+        return rel_sum / len(set(rel_ids)) if rel_ids else 0.0
     
     def _MRR(self, rel_node: list, retrieval_results: list, k: int):
         rel_ids = [node.id_  for node in rel_node]
